@@ -1,0 +1,25 @@
+{
+  "name": "image-composer",
+  "version": "1.0.0",
+  "description": "image composer with node",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sqhtiamo/imageComposer.git"
+  },
+  "keywords": [
+    "image",
+    "composer",
+    "node",
+    "canvas"
+  ],
+  "author": "cloughzhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sqhtiamo/imageComposer/issues"
+  },
+  "homepage": "https://github.com/sqhtiamo/imageComposer#readme"
+}
