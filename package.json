@@ -4,6 +4,8 @@
   "description": "image composer with node",
   "main": "index.js",
   "scripts": {
+    "build": "babel src -d build",
+    "start": "npm run build && node ./build/index.js",
     "test": "npm test"
   },
   "repository": {
@@ -21,5 +23,19 @@
   "bugs": {
     "url": "https://github.com/sqhtiamo/imageComposer/issues"
   },
-  "homepage": "https://github.com/sqhtiamo/imageComposer#readme"
+  "homepage": "https://github.com/sqhtiamo/imageComposer#readme",
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+      "syntax-async-functions",
+      "transform-regenerator"
+    ]
+  },
+  "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.8.0",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0"
+  }
 }
