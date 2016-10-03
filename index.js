@@ -1,8 +1,9 @@
 'use strict';
 
 const fs = require('fs');
-const Canvas = require('canvas')
-const Promise = require('bluebird')
+const Canvas = require('canvas');
+const clone = require('clone');
+// const Promise = require('bluebird')
 
 const WIDTH = 400;
 const HEIGHT = 700;
@@ -31,10 +32,10 @@ const PORTRAIT = {
   RADIUS: 56
 }
 
-const ImageComposer = function (qrcode, portrait, background ) {
-  this.qrcode = qrcode || QRCODE;
-  this.portrait = portrait || PORTRAIT;
-  this.background = background || BACKGROUND;
+const ImageComposer = function (qrcode, portrait, background) {
+  this.qrcode = qrcode || clone(QRCODE);
+  this.portrait = portrait || clone(PORTRAIT);
+  this.background = background || clone(BACKGROUND);
   this.output = {};
   this.img = new Canvas.Image;
 
@@ -77,7 +78,7 @@ ImageComposer.prototype.drawPotrait = function (src) {
   return new Promise((resolve, reject) => {
     fs.readFile(src, (err, origin) => {
       if (err) return reject(err);
-
+      console.log(src)
       this.img.src = origin;
 
       this.ctx.beginPath();
@@ -119,7 +120,7 @@ ImageComposer.prototype.ouput = function (output) {
   });
 };
 ImageComposer.prototype.compose = function (opt, callback) {
-
+  console.log(this.qrcode.SRC)
   if (opt) {
     this.background.src = opt && opt.backgroundSrc || this.background.SRC;
     this.qrcode.src = opt && opt.qrcodeSrc || this.qrcode.SRC;

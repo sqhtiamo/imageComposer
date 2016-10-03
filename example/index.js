@@ -16,3 +16,5 @@ imgComposer.compose({
 	portraitSrc: __dirname + '/portrait.png',
 	outputPath: __dirname + '/outputName.png'
 });
+
+
